@@ -5,7 +5,7 @@ The objective of this task is to verify the functionality, performance and relia
 
 ## 2. Test Approach
 - The test strategy for this task would be to use an automated testing approach with Selenium to verify the core user interactions.
-- Manual testing will also be performend as way of familiarising with the functionality of this website and to identify any issues.
+- Manual testing will also be performed as way of familiarising with the functionality of this website and to identify any issues.
 - The core functionality of this website will be focused on with the users provided.
 
 ## 3. Types of Testing
