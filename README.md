@@ -25,12 +25,18 @@ cd droneshield-qa-task
 
 3. Create and activate virtual environment
 
+- Windows:
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
+- Mac:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-4. Install Python Dependencies
+1. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
