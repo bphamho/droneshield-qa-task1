@@ -194,3 +194,63 @@ def test_repeat_checkout(user):
         assert header == "Products"
 
     driver.quit()
+
+@pytest.mark.parametrize("user", user_accounts)
+def test_repeat_checkout(user):
+    """Test checkout total matches with prices of total prices of items and tax is calculated correctly"""
+    driver = webdriver.Chrome()
+    driver.get("https://www.saucedemo.com/")
+
+    login(driver,user)
+    
+    items = driver.find_elements(By.CLASS_NAME, "inventory_item")
+
+    expected_subtotal = 0.0
+    
+    # Add items to cart and keep track of total
+    for item in items:
+        # Get item price
+        price_text = item.find_element(By.CLASS_NAME, "inventory_item_price").text
+        price = float(price_text.replace("$", ""))
+        
+        # Add price to expected total
+        expected_subtotal += price
+        
+        # Add the item to the cart
+        item.find_element(By.CLASS_NAME, "btn_inventory").click()
+    
+    driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+    # Go to checkout
+    driver.find_element(By.ID, "checkout").click()
+    
+    # Enter in details
+    driver.find_element(By.ID, "first-name").send_keys("Test")
+    driver.find_element(By.ID, "last-name").send_keys("User")
+    driver.find_element(By.ID, "postal-code").send_keys("2000")
+    driver.find_element(By.ID, "continue").click()
+    
+    # Get the displayed subtotal, tax, and total from the checkout overview page
+    subtotal_text = driver.find_element(By.CLASS_NAME, "summary_subtotal_label").text
+    tax_text = driver.find_element(By.CLASS_NAME, "summary_tax_label").text
+    total_text = driver.find_element(By.CLASS_NAME, "summary_total_label").text    
+
+    # Get the values from text
+    displayed_subtotal = float(subtotal_text.replace("Item total: $", ""))
+    displayed_tax = float(tax_text.replace("Tax: $", ""))
+    displayed_total = float(total_text.replace("Total: $", ""))
+    
+    # Add tax to expected total
+    expected_total = expected_subtotal + displayed_tax
+
+    # Get the total price displayed on the checkout overview page
+    total_text = driver.find_element(By.CLASS_NAME, "summary_total_label").text
+    displayed_total = float(total_text.replace("Total: $", ""))
+
+    # Verify that the displayed subtotal matches the expected subtotal
+    assert expected_subtotal == displayed_subtotal, f"Subtotal mismatch: expected ${expected_subtotal}, but got ${displayed_subtotal}"
+
+    # Verify that the expected total (subtotal + tax) matches the displayed total
+    assert expected_total == displayed_total, f"Cart total mismatch: expected ${expected_total}, but got ${displayed_total}"
+
+    driver.quit()
+    

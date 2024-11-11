@@ -61,8 +61,7 @@ def test_products_details(user):
         assert product_price_on_page == product_price_after_click, f"Product prices do not match for product {i + 1}: '{product_price_on_page}' != '{product_price_after_click}'"
         print(f"Product {i + 1} passed: {product_name_on_page} | Price: {product_price_on_page}")
         # Navigate back to the products page
-        sleep(1)
+
         driver.back()
-        sleep(1)
 
     driver.quit()
