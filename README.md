@@ -1,7 +1,7 @@
-# droneshield-qa-task
-Droneshield QA Tech Challenge 
+# droneshield-qa-task1
+Droneshield QA Tech Challenge 1
 
-- [droneshield-qa-task](#droneshield-qa-task)
+- [droneshield-qa-task1](#droneshield-qa-task1)
   - [Prerequisites](#prerequisites)
   - [How to Install and Run Tests](#how-to-install-and-run-tests)
 
