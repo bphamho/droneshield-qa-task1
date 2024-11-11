@@ -154,3 +154,22 @@ visual_user:
 3. The "Add to cart" button for the last product is misalligned
 4. The cart button on the top right is misalligned
 5. When in the cart, the "Checkout" button is misalligned
+
+### BUG 8: Perforamnce Issues
+**Priority:** High
+
+**Severirty:** Major
+
+- **Environment:** Mac OS Sonoma
+- **Browser:** Chrome
+- **Application Version:** 130.0.6723.117
+
+**Steps to Reproduce:**
+1. Log in with account performance_user
+2. Interact with web application and observe load times
+
+**Expected Result:**
+When adding to cart it should be instant and loading pages should also be near instant.
+
+**Actual Result:**
+There is lag/latency when interacting with elements of the web application.

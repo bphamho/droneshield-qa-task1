@@ -73,7 +73,6 @@ def test_addcartall(user):
     # Press each button one by one and verify cart
     for index, btn in enumerate(add_to_cart_btn):
         btn.click()
-        sleep(1)
         # Verify cart is correct
         cart = driver.find_element(By.CLASS_NAME, "shopping_cart_badge").text
         assert cart == str(index + 1), "Cart number incorrect"
@@ -81,7 +80,6 @@ def test_addcartall(user):
     # Remove each item one by one and verify cart
     for index, btn in enumerate(remove_from_cart_btn):
         btn.click()
-        sleep(1)
         # Verify cart is correct
         try:
             cart = driver.find_element(By.CLASS_NAME, "shopping_cart_badge").text
@@ -147,7 +145,7 @@ def test_verify_items_in_cart(user):
 
     # Verify the items in the cart match with the items added
     cart_items = {}
-    sleep(1)
+
     # Locate all items in the cart
     cart_products = driver.find_elements(By.CLASS_NAME, "cart_item")
     # Extract details for each item in the cart
