@@ -14,7 +14,7 @@ Droneshield QA Tech Challenge 1
 1. Clone the repository to your local machine using:
 
 ```bash
-git clone https://github.com/bphamho/droneshield-qa-task.git
+git clone https://github.com/bphamho/droneshield-qa-task1.git
 ```
 
 2. Navigate to the repository with
