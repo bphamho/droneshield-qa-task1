@@ -31,15 +31,15 @@ The objective of this task is to verify the functionality, performance and relia
 - Verify that items added to cart are displayed correctly and as expected.
 
 4. Checkout Validation
-- Verify that when using the checkout functionality that all the items that are added to the cart are ordered succesfully.
+- Verify that when using the checkout functionality that all the items that are added to the cart are ordered successfully.
 
 ## Risks
 - Testing is currently only performed on a desktop environment so no mobile testing is performed.
 
 # DECISIONS AND REASONS
-1. Automated Testing
+1. Automated Testing with Selenium and Pytest
 - Decision: Use of automated testing with the Selenium Framework with Python and pytest
-- Reasons: Allows for testing of repetitive actions and coverage of the multiple users provided
+- Reasons: Allows for testing of repetitive actions and coverage of the multiple users provided efficiently.
 
 2. Repeating each test case for all users
 - Decision: Run each test case for each individual user provided on the web application
