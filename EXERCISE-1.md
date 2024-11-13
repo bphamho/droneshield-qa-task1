@@ -14,7 +14,7 @@ The objective of this task is to verify the functionality, performance and relia
 - UI testing: Ensure UI elements are rendered correctly and as expected.
 
 ## 4. Testing Tools:
-- elenium WebDriver: To simulate user actions and verify UI functionality.
+- Selenium WebDriver: To simulate user actions and verify UI functionality.
 - Pytest: As the test framework to handle parameterized tests for different user accounts.
 
 # TEST-PLAN
